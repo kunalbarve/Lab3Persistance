@@ -28,7 +28,7 @@ public class GameController {
 	@Autowired
 	private PlayerService playerService;
 	@Autowired
-	private AddressService addressService;
+	private SponsorService sponsorService;
 	
 	@RequestMapping("/index")
 	public String setupForm(Map<String, Object> map){
@@ -66,8 +66,10 @@ public class GameController {
 	}
 	
 	@RequestMapping(value="/player/create/",method=RequestMethod.POST)
-	public @ResponseBody String createPlayer(Model model, String firstName, String lastName, String email, String description, String city,
-			String state, String zipcode, String country, String street, int sponsorId){
+	public @ResponseBody String createPlayer(Model model, String firstName, String lastName, String email, 
+			String description, String city, String state, String zipcode, 
+			String country, String street, int sponsorId){
+		
 		String result="";
 		try {
 				
@@ -77,8 +79,6 @@ public class GameController {
 			address.setCountry(country);
 			address.setZipcode(zipcode);
 			address.setState(state);
-//			addressService.add(address);
-			
 		
 			Player player = new Player();
 			player.setDescription(description);
@@ -91,7 +91,6 @@ public class GameController {
 			result = "Player Addes SuccessFully";
 				
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		return result;
