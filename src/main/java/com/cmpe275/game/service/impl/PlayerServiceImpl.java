@@ -1,7 +1,5 @@
 package com.cmpe275.game.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,21 +21,16 @@ public class PlayerServiceImpl implements PlayerService {
 
 	@Transactional
 	public Player getPlayer(int id) {
-		return (Player)playerDao.getPlayer(id);
+		return playerDao.getPlayer(id);
 	}
 
 	@Transactional
 	public void edit(Player player) {
-		
-	}
-
-	@Transactional
-	public List<Player> getAllPlayer() {
-		return null;
+		playerDao.edit(player);
 	}
 
 	@Transactional
 	public void delete(int id) {
+		playerDao.delete(id);
 	}
-
 }

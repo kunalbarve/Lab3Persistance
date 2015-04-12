@@ -1,7 +1,5 @@
 package com.cmpe275.game.dao.impl;
 
-import java.util.List;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,10 +32,4 @@ public class SponsorDaoImpl implements SponsorDao {
 	public Sponsor getSponsor(int id) {
 		return (Sponsor)session.getCurrentSession().get(Sponsor.class, id);
 	}
-
-	@Override
-	public List<Sponsor> getAllSponsors() {
-		return null;
-	}
-
 }
