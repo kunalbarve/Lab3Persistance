@@ -1,5 +1,7 @@
 package com.cmpe275.game.model;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -39,9 +41,14 @@ public class Player {
 	private Sponsor sponsor;
     
 	
-	//private Set<Opponent> opponents;
+	private Set<Opponent> opponents;
 	
-
+	public Set<Opponent> getOpponents() {
+		return opponents;
+	}
+	public void setOpponents(Set<Opponent> opponents) {
+		this.opponents = opponents;
+	}
 	public int getId() {
 		return id;
 	}
