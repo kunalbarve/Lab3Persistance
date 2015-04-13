@@ -1,6 +1,5 @@
 package com.cmpe275.game.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import com.cmpe275.game.dao.OpponentDao;
 import com.cmpe275.game.model.Opponent;
-import com.cmpe275.game.model.Player;
 
 @Repository
 public class OpponentDaoImpl implements OpponentDao {
