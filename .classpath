@@ -25,9 +25,9 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="F:/SJSU Study/My_Spring_WorkSace/jackson-mapper-asl-1.9.0.jar"/>
-	<classpathentry kind="lib" path="G:/Softwares/Jars/jackson-all-1.9.0.jar"/>
 	<classpathentry kind="lib" path="G:/Softwares/Jars/jackson-core-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="G:/Softwares/Jars/jackson-mapper-asl-1.9.0.jar"/>
 	<classpathentry kind="lib" path="G:/Softwares/Jars/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="G:/Softwares/Jars/jackson-all-1.9.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

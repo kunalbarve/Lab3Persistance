@@ -1,5 +1,6 @@
 package com.cmpe275.game.dao.impl;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,7 +26,9 @@ public class SponsorDaoImpl implements SponsorDao {
 
 	@Override
 	public void delete(int id) {
-		session.getCurrentSession().delete((Sponsor)getSponsor(id));
+	Query query = session.getCurrentSession().createQuery("delete Sponsor where sponsorId = :ID");
+		query.setParameter("ID", id);
+		query.executeUpdate();
 	}
 
 	@Override

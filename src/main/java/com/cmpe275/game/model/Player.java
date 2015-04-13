@@ -38,10 +38,11 @@ public class Player {
 	@JoinColumn(name="sponsorId")
 	private Sponsor sponsor;
     
-
-	//private ArrayList<Player> opponents;
 	
-    public int getId() {
+	//private Set<Opponent> opponents;
+	
+
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -83,12 +84,6 @@ public class Player {
 	public void setSponsor(Sponsor sponsor) {
 		this.sponsor = sponsor;
 	}
-	/*public ArrayList<Player> getOpponents() {
-		return opponents;
-	}
-	public void setOpponents(ArrayList<Player> opponents) {
-		this.opponents = opponents;
-	}
-*/
+	
     // constructors, setters, getters, etc.
 }
