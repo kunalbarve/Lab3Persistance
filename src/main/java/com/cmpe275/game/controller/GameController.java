@@ -1,5 +1,6 @@
 package com.cmpe275.game.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.map.ObjectMapper;
@@ -37,6 +38,9 @@ public class GameController {
 			Player player=playerService.getPlayer(id);
 			
 			if(player!=null){
+				
+				List<Integer> opponents = opponentService.getAllOpponents(player.getId()); 
+				player.setOpponentDetails(opponents);
 				ObjectMapper mapper=new ObjectMapper();
 				result=mapper.writeValueAsString(player);
 				return new ResponseEntity<>(result, HttpStatus.OK);
@@ -150,6 +154,11 @@ public class GameController {
 				System.out.println("its here");
 				Player player=playerService.getPlayer(id);
 				if(player!=null){
+					List<Integer> opponentList = opponentService.getAllOpponents(player.getId());
+					for(Integer oppId: opponentList){
+						deleteOpponent(model, player.getId(), oppId);
+					}
+					player.setOpponentDetails(new ArrayList<Integer>());
 					playerService.delete(id);
 					ObjectMapper mapper=new ObjectMapper();
 					result=mapper.writeValueAsString(player);
@@ -307,7 +316,7 @@ public class GameController {
 	}
 	
 	@RequestMapping(value="/opponent/remove/{id1}/{id2}",method=RequestMethod.DELETE)
-	public ResponseEntity<?> deleteSponsor(Model model,@PathVariable Integer id1,@PathVariable Integer id2){
+	public ResponseEntity<?> deleteOpponent(Model model,@PathVariable Integer id1,@PathVariable Integer id2){
 		String result="";
 		if(id1 != null && id2 != null && id1 != id2){
 			try {

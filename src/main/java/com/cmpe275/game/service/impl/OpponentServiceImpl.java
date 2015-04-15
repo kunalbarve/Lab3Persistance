@@ -1,5 +1,7 @@
 package com.cmpe275.game.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,8 +28,12 @@ public class OpponentServiceImpl implements OpponentService {
 
 	@Transactional
 	public Opponent search(Integer id1, Integer id2) {
-		// TODO Auto-generated method stub
 		return opponentDao.search(id1, id2);
+	}
+
+	@Transactional
+	public List<Integer> getAllOpponents(int playerId) {
+		return opponentDao.getAllOpponents(playerId);
 	}
 
 }

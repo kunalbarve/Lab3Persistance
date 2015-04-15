@@ -1,5 +1,6 @@
 package com.cmpe275.game.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -33,7 +34,6 @@ public class OpponentDaoImpl implements OpponentDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Opponent search(Integer id1, Integer id2) {
-		// TODO Auto-generated method stub
 		Criteria c=session.getCurrentSession().createCriteria(Opponent.class, "o");
 		c.add(Restrictions.eq("o.player1.id", id1));
 		c.add(Restrictions.eq("o.player2.id", id2));
@@ -42,5 +42,18 @@ public class OpponentDaoImpl implements OpponentDao {
 			return lstOpponent.get(0);
 		}
 		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Integer> getAllOpponents(int playerId) {
+		Criteria c=session.getCurrentSession().createCriteria(Opponent.class, "o");
+		c.add(Restrictions.eq("o.player1.id", playerId));
+		List<Opponent> listOpponents = (ArrayList<Opponent>)c.list();
+		List<Integer> oppList = new ArrayList<Integer>();
+		for(Opponent o : listOpponents){
+			oppList.add(o.getPlayer2().getId());
+		}
+		return oppList;
 	}
 }

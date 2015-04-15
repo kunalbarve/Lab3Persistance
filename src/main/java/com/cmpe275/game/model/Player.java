@@ -1,6 +1,6 @@
 package com.cmpe275.game.model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="player")
@@ -40,14 +41,14 @@ public class Player {
 	@JoinColumn(name="sponsorId")
 	private Sponsor sponsor;
     
+	@Transient
+	List<Integer> opponents;
 	
-	private Set<Opponent> opponents;
-	
-	public Set<Opponent> getOpponents() {
+	public List<Integer> getOpponentDetails() {
 		return opponents;
 	}
-	public void setOpponents(Set<Opponent> opponents) {
-		this.opponents = opponents;
+	public void setOpponentDetails(List<Integer> opponentDetails) {
+		this.opponents = opponentDetails;
 	}
 	public int getId() {
 		return id;
